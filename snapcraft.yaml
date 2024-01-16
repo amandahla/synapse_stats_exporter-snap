@@ -1,0 +1,23 @@
+name: synapse-stats-exporter
+base: core22
+summary: Synapse Stats Exporter snap
+description: Prometheus Exporter to collect Synapse statistics
+version: "1.0.0"
+license: Apache-2.0
+confinement: strict
+architectures:
+  - build-on: [amd64]
+    build-for: [amd64]
+apps:
+  synapse-stats-exporter:
+    command: bin/synapse-stats-exporter
+    plugs:
+      - network
+      - network-bind
+      - snap-apt-dpkg-db
+
+parts:
+  synapse-stats-exporter:
+    plugin: python
+    source: https://github.com/amandahla/synapse_stats_exporter.git
+    python-requirements: [./requirements.txt]
