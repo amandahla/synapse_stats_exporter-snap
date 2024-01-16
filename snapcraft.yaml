@@ -13,8 +13,6 @@ apps:
     command: bin/synapse-stats-exporter
     plugs:
       - network
-      - network-bind
-      - snap-apt-dpkg-db
 
 parts:
   synapse-stats-exporter:
